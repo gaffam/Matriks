@@ -1,0 +1,3 @@
+Yangin paneli XYZ-2000 kullanma kilavuzu:
+1. Loop karti baglantisi icin kablolari renk sirasina gore yerlestirin.
+2. Zone 3 offline olursa loop 2 kablosunu kontrol edin.

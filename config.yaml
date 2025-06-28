@@ -1,0 +1,35 @@
+models:
+  llm: "models/finetuned-mistral.gguf"
+paths:
+  piper_binary: "piper"
+  whisper_binary: "whisper"
+  fault_db: "fault_knowledge.json"
+  docs_dir: "docs"
+  prompt_cache: "prompt_cache.db"
+  invoice_templates: "templates"
+language: "tr"
+lora_params:
+  r: 8
+  alpha: 16
+email:
+  smtp_host: "smtp.example.com"
+  smtp_port: 587
+  username: "user@example.com"
+  password: "${SMTP_PASSWORD}"
+  default_to: "client@example.com"
+# Bulut API icin ayarlar
+api_settings:
+  base_url: "http://localhost:8000"
+  api_token: "${API_TOKEN}"
+# Dosyayi sifrelemek isterseniz CONFIG_KEY ve CONFIG_SALT
+# ortam degiskenlerini ayarlayin.
+datasets:
+  github_sources:
+    - url: "https://raw.githubusercontent.com/user/repo/main/fault_codes.csv"
+      output_path: "data/fault_codes.csv"
+  kaggle_sources:
+    - name: "someuser/fire-alarm-data"
+      download_path: "data/kaggle/fire_alarms"
+  hf_sources:
+    - name: "teknium/open-hermes"
+      download_path: "data/hf/open_hermes"

@@ -1,0 +1,14 @@
+[
+  {
+    "code": "135",
+    "description": "Yang\u0131n butonundan gelen hatal\u0131 s\u00fcrekli sinyal. Buton i\u00e7 konta\u011f\u0131 tak\u0131l\u0131 kalm\u0131\u015f olabilir. Fiziksel butonu kontrol et."
+  },
+  {
+    "code": "227",
+    "description": "Kod 227, alarm paneli ile haberle\u015fme kayb\u0131d\u0131r. \u00d6ncelikle ba\u011flant\u0131 kablolar\u0131n\u0131 kontrol et."
+  },
+  {
+    "code": "zone 3 offline",
+    "description": "Loop 2\u2019de k\u0131sa devre olabilir. Panelde izolasyon varsa aktif edilir. Kablo kontrol edilmeli."
+  }
+]

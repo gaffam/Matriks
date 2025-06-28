@@ -1,0 +1,33 @@
+<CustomButton@Button>:
+    background_color: 0.2, 0.6, 0.8, 1
+    font_size: '18sp'
+
+<MainWidget>:
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Sesli Asistan'
+        CustomButton:
+            text: 'Konus'
+            on_press: root.run_query()
+        CustomButton:
+            text: 'PDF Gonder'
+            on_press: root.send_pdf()
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            CustomButton:
+                text: '\U0001F44D'
+                on_press: root.send_feedback(True)
+            CustomButton:
+                text: '\U0001F44E'
+                on_press: root.send_feedback(False)
+        Label:
+            id: output
+            text: ''
