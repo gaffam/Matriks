@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+
+# VSCode / PyCharm gibi IDE dosyalari
+.vscode/
+.idea/
+
+# Model Checkpoints
+*.gguf
+*.pt
+*.ckpt
+
+# Build Artifacts
+dist/
+build/
+*.egg-info/
+
+# Kagit ve model dosyalari depoda tutulmaz
+data/
+models/
+.env
