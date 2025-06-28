@@ -1,6 +1,6 @@
 import os
 import requests
-from config import load_config
+from utils.config import load_config
 
 CFG = load_config()
 SETTINGS = CFG.get("api_settings", {})

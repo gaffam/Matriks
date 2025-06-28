@@ -10,7 +10,7 @@ import logging
 from gtts import gTTS
 from playsound import playsound
 
-from config import load_config
+from utils.config import load_config
 
 CFG = load_config()
 PIPER_CMD = CFG.get("paths", {}).get("piper_binary", "piper")

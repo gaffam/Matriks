@@ -6,14 +6,14 @@ import logging
 import os
 from pathlib import Path
 
-from config import load_config
+from utils.config import load_config
 
-from speech_client import transcribe, transcribe_mic
-from ask_llm import LLMClient
-from api_client import ask_cloud
-from voice_response import speak
-from proforma_engine import create_quote, quote_to_pdf
-from invoice_parser import InvoiceParser
+from speech.speech_client import transcribe, transcribe_mic
+from assistant.ask_llm import LLMClient
+from api.api_client import ask_cloud
+from speech.voice_response import speak
+from assistant.proforma_engine import create_quote, quote_to_pdf
+from assistant.invoice_parser import InvoiceParser
 
 
 CFG = load_config()
@@ -112,14 +112,14 @@ def main():
         return
 
     if args.recommend:
-        from product_selector import recommend_brand
+        from assistant.product_selector import recommend_brand
 
         brand = recommend_brand({"location": args.recommend[0], "type": args.recommend[1]})
         print(f"Onerilen marka: {brand}")
         return
 
     if args.spec:
-        from spec_reader import parse_spec
+        from assistant.spec_reader import parse_spec
 
         reqs = parse_spec(args.spec)
         print(json.dumps(reqs, indent=2, ensure_ascii=False))
@@ -130,7 +130,7 @@ def main():
     else:
         text = transcribe(args.audio, lang=args.lang)
 
-    from lang_detect import detect_lang
+    from utils.lang_detect import detect_lang
     detected = detect_lang(text)
     if not args.lang:
         args.lang = detected
@@ -147,7 +147,7 @@ def main():
         quote_to_pdf(quote, args.pdf)
         print(f"PDF kaydedildi: {args.pdf}")
         if args.email:
-            from send_email import send_email
+            from utils.send_email import send_email
 
             send_email(
                 args.email,

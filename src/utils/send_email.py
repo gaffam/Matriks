@@ -4,7 +4,7 @@ from email.message import EmailMessage
 from pathlib import Path
 from typing import Optional
 
-from config import load_config
+from .config import load_config
 
 CFG = load_config()
 

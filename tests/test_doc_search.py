@@ -4,7 +4,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 
 pytest.importorskip('yaml')
-from doc_search import search
+from assistant.doc_search import search
 
 
 def test_doc_search_fuzzy():

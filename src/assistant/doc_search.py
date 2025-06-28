@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from difflib import SequenceMatcher
 from collections import Counter
-from config import load_config
+from utils.config import load_config
 
 CFG = load_config()
 DOCS_DIR = Path(__file__).resolve().parent.parent / CFG.get("paths", {}).get("docs_dir", "docs")

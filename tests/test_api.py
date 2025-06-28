@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 
 fastapi = pytest.importorskip('fastapi')
 from fastapi.testclient import TestClient
-from api_server import app, llm_client
+from api.api_server import app, llm_client
 
 client = TestClient(app)
 

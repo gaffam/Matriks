@@ -8,6 +8,7 @@ GGUF using the ``convert_to_gguf.sh`` helper.
 
 import argparse
 from pathlib import Path
+import logging
 
 from datasets import load_dataset
 from transformers import (
@@ -90,11 +91,11 @@ def main() -> None:
         api = HfApi()
         weights = Path(args.output_dir) / "pytorch_model.safetensors"
         api.upload_file(path_or_fileobj=str(weights), path_in_repo="pytorch_model.safetensors", repo_id=args.push, repo_type="model")
-        print(f"LoRA weights uploaded to https://huggingface.co/{args.push}")
+        logging.info("LoRA weights uploaded to https://huggingface.co/%s", args.push)
 
-    print(
-        "\nTraining complete. Convert to GGUF with:\n"
-        f"./convert_to_gguf.sh {args.output_dir}/pytorch_model.safetensors models/finetuned-mistral.gguf"
+    logging.info(
+        "Training complete. Convert to GGUF with: ./convert_to_gguf.sh %s/pytorch_model.safetensors models/finetuned-mistral.gguf",
+        args.output_dir,
     )
 
 

@@ -3,7 +3,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from colab_launcher import generate_colab_url
+from training.colab_launcher import generate_colab_url
 
 
 def test_generate_colab_url():

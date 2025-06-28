@@ -9,10 +9,10 @@ class LLMError(Exception):
     """Custom error for LLM related problems."""
 
 
-from doc_search import search as search_docs
+from .doc_search import search as search_docs
 
-from config import load_config
-from prompt_cache import PromptCache
+from utils.config import load_config
+from utils.prompt_cache import PromptCache
 
 from llama_cpp import Llama
 import os

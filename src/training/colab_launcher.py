@@ -1,5 +1,6 @@
 import urllib.parse
 from pathlib import Path
+import logging
 
 
 def generate_colab_url(repo_url: str, data_path: str = "data/instruction_data.jsonl") -> str:
@@ -23,7 +24,7 @@ def save_colab_launcher(repo_url: str, output_path: str = "launch_colab.html") -
     </html>
     """
     Path(output_path).write_text(html.strip(), encoding="utf-8")
-    print(f"Colab link saved to {output_path}")
+    logging.info("Colab link saved to %s", output_path)
 
 
 if __name__ == "__main__":

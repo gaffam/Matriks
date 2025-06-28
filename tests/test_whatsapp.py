@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 
 pytest.importorskip('requests')
 from unittest.mock import patch
-from whatsapp_integration import process_whatsapp_audio
+from speech.whatsapp_integration import process_whatsapp_audio
 
 @patch('requests.get')
 def test_whatsapp_audio(mock_get):

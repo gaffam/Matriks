@@ -2,7 +2,7 @@ import pytest
 from pathlib import Path
 
 torch = pytest.importorskip('torch')
-from invoice_parser import InvoiceParser
+from assistant.invoice_parser import InvoiceParser
 
 invoice2data = pytest.importorskip('invoice2data')
 

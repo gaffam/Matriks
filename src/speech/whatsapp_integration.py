@@ -4,7 +4,7 @@ from typing import Optional
 from pathlib import Path
 import requests
 
-from speech_client import transcribe
+from .speech_client import transcribe
 
 
 def download_audio(url: str, dest: Optional[str] = None) -> str:

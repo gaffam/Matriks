@@ -5,7 +5,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 
 pytest.importorskip('llama_cpp')
-from ask_llm import LLMClient
+from assistant.ask_llm import LLMClient
 
 
 def test_llm_response_quality():

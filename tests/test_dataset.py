@@ -5,7 +5,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 
 pytest.importorskip('datasets')
-from train_mistral_lora import build_text
+from training.train_mistral_lora import build_text
 
 def test_build_text_handles_output_and_response(tmp_path):
     data = [

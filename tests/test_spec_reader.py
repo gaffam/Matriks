@@ -1,4 +1,4 @@
-from spec_reader import parse_spec
+from assistant.spec_reader import parse_spec
 
 def test_parse_spec(tmp_path):
     spec = tmp_path / "spec.txt"

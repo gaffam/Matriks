@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-from config import load_config
+from .config import load_config
 
 CFG = load_config()
 DB_PATH = Path(__file__).resolve().parent.parent / CFG.get("paths", {}).get("prompt_cache", "prompt_cache.db")

@@ -3,10 +3,10 @@ import pytest
 jinja2 = pytest.importorskip('jinja2')
 pdfkit = pytest.importorskip('pdfkit')
 
-from kanit_ai.veri_etiketi_okuyucu import read_label_mapping
-from kanit_ai.bakim_log_analiz import detect_fake_maintenance
-from kanit_ai.sozlesme_uretici import create_contract
-from kanit_ai.acil_durum_raporu import generate_emergency_report
+from assistant.kanit_ai.veri_etiketi_okuyucu import read_label_mapping
+from assistant.kanit_ai.bakim_log_analiz import detect_fake_maintenance
+from assistant.kanit_ai.sozlesme_uretici import create_contract
+from assistant.kanit_ai.acil_durum_raporu import generate_emergency_report
 
 
 def test_read_label_mapping(tmp_path):

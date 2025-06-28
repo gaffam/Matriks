@@ -21,7 +21,7 @@ from pathlib import Path
 
 import speech_recognition as sr
 
-from config import load_config
+from utils.config import load_config
 
 try:
     import whisper as whisper_torch

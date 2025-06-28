@@ -14,12 +14,12 @@ from kivy.cache import Cache
 import datetime
 import threading
 
-from config import load_config
+from utils.config import load_config
 
-from speech_client import transcribe_mic
-from ask_llm import LLMClient
-from proforma_engine import create_quote
-from voice_response import speak
+from speech.speech_client import transcribe_mic
+from assistant.ask_llm import LLMClient
+from assistant.proforma_engine import create_quote
+from speech.voice_response import speak
 
 
 CFG = load_config()
@@ -45,7 +45,7 @@ class MainWidget(BoxLayout):
         lang = CFG.get("language")
         text = transcribe_mic(lang=lang or "tr")
         if not lang:
-            from lang_detect import detect_lang
+            from utils.lang_detect import detect_lang
             lang = detect_lang(text)
         result = self.handle(text)
 
@@ -73,8 +73,8 @@ class MainWidget(BoxLayout):
             self.label.text = "Once proforma olusturun"
             return
         pdf_path = "teklif.pdf"
-        from proforma_engine import quote_to_pdf
-        from send_email import send_email
+        from assistant.proforma_engine import quote_to_pdf
+        from utils.send_email import send_email
 
         quote_to_pdf(self.last_quote, pdf_path)
         to_addr = CFG.get("email", {}).get("default_to")

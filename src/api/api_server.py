@@ -11,8 +11,8 @@ from slowapi.middleware import SlowAPIMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Counter, Histogram
 
-from ask_llm import LLMClient
-from config import load_config
+from assistant.ask_llm import LLMClient
+from utils.config import load_config
 from fastapi.openapi.utils import get_openapi
 from jose import JWTError, jwt
 
@@ -106,7 +106,7 @@ async def bulk_ask(queries: list[Query], authorization: str | None = Header(defa
 
 @app.post("/transcribe")
 async def transcribe_audio(file: UploadFile = File(...), lang: str | None = None) -> dict[str, str]:
-    from speech_client import transcribe
+    from speech.speech_client import transcribe
 
     with open("/tmp/upload.wav", "wb") as fh:
         fh.write(await file.read())
@@ -116,7 +116,7 @@ async def transcribe_audio(file: UploadFile = File(...), lang: str | None = None
 
 @app.post("/speak")
 async def speak_text(query: Query) -> None:
-    from voice_response import speak
+    from speech.voice_response import speak
 
     await asyncio.to_thread(speak, query.prompt, lang=CFG.get("language", "tr"))
 
